@@ -21,30 +21,30 @@
 	<nav class="navbar navbar-default">
 		<div class="container">
 			<div class="navbar-header">
-				<a href="javascript:void(0)" class="navbar-brand"><span class="glyphicon glyphicon-signal"></span> InvestSystem</a>
+				<a href="javascript:void(0)" class="navbar-brand"><span class="glyphicon glyphicon-signal"></span> Options Calculator</a>
 			</div>
 		</div>
-		</nav>
+	</nav>
 	<div class="container">
 		<div class="jumbotron" ng-hide="setups.length">
-			<p>Simuldor em fase beta</p>
+			<p>This is a tool to calculate your open option positions in any trading market. You can add as many setups as you wish. Each setup will consist of one or more trades in a particular stock or index. All data you enter will be automatically saved on your local machine and NO information is sent to any remote servers.</p>
 		</div>
 		<div class="setup form-group" ng-repeat="setup in setups track by $index">
 			<div class="input">
 				<div>
 					<label>
-						Nome <input type="text" ng-model="setup.name" class="form-control" placeholder="ex. PETR4">
+						Name <input type="text" ng-model="setup.name" class="form-control" placeholder="ex. NIFTY">
 					</label>
 					<label>
-						Preco Acao <input type="text" ng-model="setup.spotPrice" class="form-control">
+						Spot price <input type="text" ng-model="setup.spotPrice" class="form-control">
 					</label>
 				</div>
 				<div ng-repeat="trade in setup.trades  track by $index">
 					<div class="row">
 						<div class="col-md-4 option-type">
 							<div class="btn-group">
-								<label class="btn btn-primary" ng-model="trade.tradeType" uib-btn-radio="'buy'">Comprar</label>
-								<label class="btn btn-danger" ng-model="trade.tradeType" uib-btn-radio="'sell'">Vender</label>
+								<label class="btn btn-info" ng-model="trade.tradeType" uib-btn-radio="'buy'">Buy</label>
+								<label class="btn btn-info" ng-model="trade.tradeType" uib-btn-radio="'sell'">Sell</label>
 							</div>
 							<div class="btn-group">
 								<label class="btn btn-warning" ng-model="trade.optionType" uib-btn-radio="'call'">Call</label>
@@ -58,11 +58,11 @@
 									<input type="text" ng-model="trade.strike" class="form-control">
 								</div>
 								<div class="col-md-3">
-									<label uib-tooltip="Price of 1 unit of option">Premio</label>
+									<label uib-tooltip="Price of 1 unit of option">Premium</label>
 									<input type="text" ng-model="trade.premium" class="form-control">
 								</div>
 								<div class="col-md-3">
-									<label>Qtd</label>
+									<label>Qty</label>
 									<input type="text" ng-model="trade.qty" class="form-control">
 								</div>
 								<div class="col-md-3 delete-trade">
@@ -78,7 +78,7 @@
 			</div>
 			<div class="result">
 				<div class="row">
-					<div class="col-md-6 net-profit">Lucro & Prejuizo: <strong class="{{getProfitClass(setup)}}">{{setup.profit}}</strong></div>
+					<div class="col-md-6 net-profit">Profit & Loss: <strong class="{{getProfitClass(setup)}}">{{setup.profit}}</strong></div>
 					<div class="col-md-6 delete-setup"><button class="btn btn-danger" ng-click="deleteSetup(setup)">Delete Setup</button></div>
 				</div>
 			</div>
@@ -87,13 +87,13 @@
     		</div>
 		</div>
 		<div class="button-group text-center">
-			<button class="btn btn-primary" ng-click="addSetup()"><span class="glyphicon glyphicon-plus"></span> Add Nova Simulacao</button>
+			<button class="btn btn-primary" ng-click="addSetup()"><span class="glyphicon glyphicon-plus"></span> Add New Setup</button>
 		</div>
 	</div>
 
 	<footer>
 		<div class="container">
-			<div class="text-center">Copyright ©, 2021 InvestSystem. All rights reserved.</div>
+			<div class="text-center">Copyright ©, 2016 www.optionscalculator.in. All rights reserved.</div>
 		</div>
 	</footer>
 
